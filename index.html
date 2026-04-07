@@ -24,25 +24,36 @@
       --nav-height: 74px;
       --page-pad: clamp(1.5rem, 6vw, 7rem);
     }
-    .profile-photo-wrap {
-        width: 150px; 
-        height: 150px;
-        border-radius: 50%; /* Esto hace el círculo */
-        border: 2px solid var(--neon-green); 
-        overflow: hidden; /* Esto recorta la foto para que no se salga del círculo */
-        background: var(--surface);
-        position: relative;
+.profile-photo-wrap {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%; /* Círculo perfecto */
+      border: 2px solid var(--neon-green);
+      overflow: hidden; /* Corta la imagen sobrante */
+      background: var(--surface);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(170, 255, 0, 0.15);
+      margin: 0 auto;
+    }
+
+    .profile-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ajuste sin deformar */
+      display: block;
+    }
+
+    /* Ajuste para móviles: que no se rompa el círculo */
+    @media (max-width: 900px) {
+      .profile-photo-wrap {
+        width: 110px; /* Tamaño un poco más grande en móvil para que luzca */
+        height: 110px;
         flex-shrink: 0;
-        box-shadow: 0 0 20px rgba(170, 255, 0, 0.15);
-        margin: 0 auto; /* Centra la foto en su columna */
       }
-    
-      .profile-photo-wrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* IMPORTANTE: esto evita que la foto se estire */
-        display: block;
-      }
+    }
     
       .about-photo-col {
         display: flex;
@@ -503,15 +514,13 @@
     <div class="about-grid">
 
       <!-- Foto de perfil -->
-     <div class="about-photo-col reveal">
-  <div class="profile-photo-wrap">
-    
-    <img src="assets/perfil.jpg" alt="Fer — Editor de video" class="profile-img" />
-
-  </div>
-  <div class="profile-name">Fer</div>
-  <div class="profile-handle">@fer.edicion</div>
-</div>
+    <div class="about-photo-col reveal">
+        <div class="profile-photo-wrap">
+          <img src="assets/perfil.jpg" alt="Fer — Editor de video" />
+        </div>
+        <div class="profile-name">Fer</div>
+        <div class="profile-handle">@fer.edicion</div>
+      </div>
 
       <!-- Texto -->
       <div class="about-text reveal">
