@@ -39,20 +39,27 @@
       margin: 0 auto;
     }
 
-    .profile-photo-wrap img {
+    .profile-photo-wrap {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 2px solid var(--neon-green);
+      overflow: hidden;
+      background: var(--surface);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(170, 255, 0, 0.15);
+      margin: 0 auto;
+    }
+    
+    .profile-img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Ajuste sin deformar */
+      object-fit: cover; /* Recorta la imagen para llenar el círculo sin estirarse */
       display: block;
     }
-
-    /* Ajuste para móviles: que no se rompa el círculo */
-    @media (max-width: 900px) {
-      .profile-photo-wrap {
-        width: 110px; /* Tamaño un poco más grande en móvil para que luzca */
-        height: 110px;
-        flex-shrink: 0;
-      }
     }
     
       .about-photo-col {
@@ -516,13 +523,13 @@
       <!-- Foto de perfil -->
   <!-- Foto de perfil -->
 
-     <div class="about-photo-col reveal">
-  <div class="profile-photo-wrap">
-    <img src="assets/perfil.png" alt="Fer — Editor de video" class="profile-img" />
-  </div>
-  <div class="profile-name">Fer</div>
-  <div class="profile-handle">@fer.edicion</div>
-</div>
+    <div class="about-photo-col reveal">
+      <div class="profile-photo-wrap">
+        <img src="assets/perfil.png" alt="Fer — Editor de video" class="profile-img" />
+      </div>
+      <div class="profile-name">Fer</div>
+      <div class="profile-handle">@fer.edicion</div>
+    </div>
 
       <!-- Texto -->
       <div class="about-text reveal">
