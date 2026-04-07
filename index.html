@@ -9,49 +9,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --neon-green: #AAFF00;
-      --neon-pink: #FF2D78;
-      --neon-cyan: #00F0FF;
-      --neon-orange: #FF6B00;
-      --bg: #080808;
-      --bg2: #0e0e0e;
-      --surface: #141414;
-      --text: #F0F0F0;
-      --muted: #888;
-      --font-display: 'Syne', sans-serif;
-      --font-mono: 'Space Mono', monospace;
-      --nav-height: 74px;
-      --page-pad: clamp(1.5rem, 6vw, 7rem);
-    }
-.profile-photo-wrap {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 2px solid var(--neon-green);
-      overflow: hidden;
-      background: var(--surface);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 20px rgba(170, 255, 0, 0.15);
-      margin: 0 auto;
-    }
+:root {
+    --neon-green: #AAFF00;
+    --neon-pink: #FF2D78;
+    --neon-cyan: #00F0FF;
+    --neon-orange: #FF6B00;
+    --bg: #080808;
+    --bg2: #0e0e0e;
+    --surface: #141414;
+    --text: #F0F0F0;
+    --muted: #888;
+    --font-display: 'Syne', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --nav-height: 74px;
+    --page-pad: clamp(1.5rem, 6vw, 7rem);
+  }
 
-    .profile-photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+  /* BLOQUE DE FOTO CORREGIDO */
+  .about-photo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+  }
 
-    .about-photo-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.9rem;
-    }
+  .profile-photo-wrap {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid var(--neon-green);
+    overflow: hidden;
+    background: var(--surface);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(170, 255, 0, 0.15);
+    margin: 0 auto;
+  }
+
+  .profile-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -504,8 +506,8 @@
 
     <div class="about-grid">
 
-      <!-- Foto de perfil -->
-      <div class="about-photo-col reveal">
+          <!-- Foto de perfil -->
+    <div class="about-photo-col reveal">
       <div class="profile-photo-wrap">
         <img src="perfil.png" alt="Fer — Editor de video" />
       </div>
