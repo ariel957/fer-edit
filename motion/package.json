@@ -1,0 +1,22 @@
+{
+  "name": "fer-edit-motion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Animaciones de fondo para fer-edit, generadas con Remotion.",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion render BackgroundLoop out/background-loop.mp4",
+    "build:webm": "remotion render BackgroundLoop out/background-loop.webm --codec=vp8"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.0",
+    "@remotion/cli": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.4.0"
+  }
+}

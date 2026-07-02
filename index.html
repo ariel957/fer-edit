@@ -220,6 +220,72 @@
       align-items: center;
     }
 
+    /* Hero: layout con video circular */
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hero-video-wrap {
+      flex-shrink: 0;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      border: 2px dashed rgba(168, 239, 46, 0.45);
+      background: radial-gradient(circle at 50% 40%, rgba(168, 239, 46, 0.08) 0%, transparent 70%), var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .hero-video-wrap video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .hero-video-icon {
+      width: 34px;
+      height: 34px;
+      border: 1.5px solid rgba(168, 239, 46, 0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video-icon svg {
+      fill: var(--neon-green);
+      margin-left: 2px;
+    }
+
+    .hero-video-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     .btn-primary {
       background: var(--neon-green);
       color: #000;
@@ -336,15 +402,15 @@
        ABOUT — sección más grande
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     #about {
-      padding: 8rem var(--page-pad);
+      padding: 5rem var(--page-pad);
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 220px 1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 170px 1fr 1fr;
+      gap: 3rem;
       align-items: start;
-      margin-top: 3.5rem;
+      margin-top: 2.25rem;
     }
 
     /* Foto */
@@ -356,8 +422,8 @@
     }
 
     .profile-photo-wrap {
-      width: 190px;
-      height: 190px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       border: 2.5px solid var(--neon-green);
       overflow: hidden;
@@ -392,13 +458,13 @@
       text-align: center;
     }
 
-    /* Texto sobre mí — más grande */
+    /* Texto sobre mí — compacto */
     .about-text p {
       font-family: var(--font-mono);
-      font-size: 0.95rem;
-      line-height: 2;
+      font-size: 0.88rem;
+      line-height: 1.7;
       color: var(--muted);
-      margin-bottom: 1.4rem;
+      margin-bottom: 0.9rem;
     }
 
     .about-text p strong {
@@ -414,7 +480,7 @@
 
     .stat-card {
       background: var(--surface);
-      padding: 1.8rem 1.4rem;
+      padding: 1.2rem 1.1rem;
       border: 1px solid rgba(255, 255, 255, 0.04);
       position: relative;
       overflow: hidden;
@@ -438,11 +504,11 @@
     }
 
     .stat-number {
-      font-size: 2.6rem;
+      font-size: 2rem;
       font-weight: 800;
       color: var(--neon-green);
       line-height: 1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
     }
 
     .stat-desc {
@@ -543,11 +609,15 @@
     }
 
     .video-grid.vertical-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
     .video-grid.horizontal-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .video-grid.motion-grid {
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     }
 
     .video-item {
@@ -582,6 +652,120 @@
     /* Horizontales aspect ratio */
     .horizontal-grid .video-thumb {
       aspect-ratio: 16/9;
+    }
+
+    /* Verticales: mockup de teléfono */
+    .vertical-grid .video-item {
+      max-width: 190px;
+      margin: 0 auto;
+      border-radius: 22px;
+      border: 5px solid #1b1b1b;
+      background: #000;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 18px 34px rgba(0, 0, 0, 0.45);
+    }
+
+    .vertical-grid .video-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 46px;
+      height: 12px;
+      background: #1b1b1b;
+      border-radius: 0 0 8px 8px;
+      z-index: 4;
+    }
+
+    .vertical-grid .video-info {
+      padding: 0.55rem 0.7rem 0.65rem;
+    }
+
+    .vertical-grid .video-title {
+      font-size: 0.7rem;
+    }
+
+    .vertical-grid .video-platform {
+      font-size: 0.55rem;
+    }
+
+    .vertical-grid .video-link-btn {
+      font-size: 0.54rem;
+      padding: 0.22rem 0.5rem;
+    }
+
+    /* Horizontales: mockup de navegador tipo YouTube */
+    .horizontal-grid .video-item {
+      max-width: 340px;
+      margin: 0 auto;
+      border-radius: 10px;
+      padding-top: 26px;
+    }
+
+    .browser-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 26px;
+      background: #1a1a1a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 0.6rem;
+      z-index: 4;
+    }
+
+    .browser-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .browser-dot.red {
+      background: #ff5f56;
+    }
+
+    .browser-dot.yellow {
+      background: #ffbd2e;
+    }
+
+    .browser-dot.green {
+      background: #27c93f;
+    }
+
+    .browser-url {
+      margin-left: 0.5rem;
+      flex: 1;
+      min-width: 0;
+      background: #0f0f0f;
+      border-radius: 4px;
+      padding: 0.12rem 0.55rem;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .browser-url svg {
+      flex-shrink: 0;
+    }
+
+    /* Motion Graphics: grid cuadrada con placeholders */
+    .motion-grid .video-item {
+      max-width: 210px;
+      margin: 0 auto;
+      cursor: default;
+    }
+
+    .motion-grid .video-thumb {
+      aspect-ratio: 1 / 1;
     }
 
     .video-placeholder {
@@ -735,14 +919,22 @@
       inset: 0;
       background: rgba(8, 8, 8, 0.6);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 0.6rem;
       font-family: var(--font-mono);
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);
       backdrop-filter: blur(2px);
+    }
+
+    .coming-soon-overlay svg {
+      width: 26px;
+      height: 26px;
+      opacity: 0.5;
     }
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -951,15 +1143,6 @@
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        RESPONSIVE
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-    @media (max-width: 1200px) {
-      .video-grid.vertical-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .video-grid.horizontal-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     @media (max-width: 1000px) {
       .about-grid {
         grid-template-columns: 200px 1fr;
@@ -996,6 +1179,18 @@
         padding: calc(var(--nav-height) + 1rem) var(--page-pad) 4rem;
       }
 
+      .hero-inner {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .hero-video-wrap {
+        width: 160px;
+        height: 160px;
+      }
+
       .about-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -1029,14 +1224,6 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .video-grid.vertical-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .video-grid.horizontal-grid {
-        grid-template-columns: 1fr;
-      }
-
       .portfolio-header {
         flex-direction: column;
         align-items: flex-start;
@@ -1054,11 +1241,6 @@
       }
     }
 
-    @media (max-width: 560px) {
-      .video-grid.vertical-grid {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 
@@ -1081,21 +1263,36 @@
   <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="hero-bg"></div>
-    <div class="hero-label fade-up">Editor de video · Redes sociales</div>
-    <h1 class="hero-title fade-up delay-1">
-      Tu contenido<br>
-      <span class="accent">tiene valor.</span><br>
-      <span class="stroke">tu tiempo</span><br>
-      tambien
-    </h1>
-    <p class="hero-sub fade-up delay-2">
-      Edición profesional en formato vertical u horizontal orientada a optimizar el impacto visual de cada proyecto. Sin
-      trucos visuales genéricos ni transiciones de plantilla: montaje limpio, sonido pulido y narrativa fluida diseñada
-      exclusivamente para creadores exigentes.
-    </p>
-    <div class="hero-actions fade-up delay-3">
-      <a href="#portfolio" class="btn-primary">Ver mi trabajo</a>
-      <a href="#servicios" class="btn-ghost">¿Qué hago exactamente?</a>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-label fade-up">Editor de video · Redes sociales</div>
+        <h1 class="hero-title fade-up delay-1">
+          Tu contenido<br>
+          <span class="accent">tiene valor.</span><br>
+          <span class="stroke">tu tiempo</span><br>
+          tambien
+        </h1>
+        <p class="hero-sub fade-up delay-2">
+          Edición profesional en formato vertical u horizontal orientada a optimizar el impacto visual de cada proyecto. Sin
+          trucos visuales genéricos ni transiciones de plantilla: montaje limpio, sonido pulido y narrativa fluida diseñada
+          exclusivamente para creadores exigentes.
+        </p>
+        <div class="hero-actions fade-up delay-3">
+          <a href="#portfolio" class="btn-primary">Ver mi trabajo</a>
+          <a href="#servicios" class="btn-ghost">¿Qué hago exactamente?</a>
+        </div>
+      </div>
+
+      <!-- Video de presentación: circular. Todavía no está grabado —
+           cuando lo tengas, subilo a assets/presentacion.mp4 y reemplazá
+           el contenido de este div por:
+           <video src="assets/presentacion.mp4" autoplay muted loop playsinline poster="assets/presentacion-poster.jpg"></video> -->
+      <div class="hero-video-wrap fade-up delay-2">
+        <div class="hero-video-icon">
+          <svg width="12" height="12" viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11" fill="currentColor" /></svg>
+        </div>
+        <div class="hero-video-label">Video de<br>presentación<br>próximamente</div>
+      </div>
     </div>
   </section>
 
@@ -1383,6 +1580,15 @@
 
       <!-- HORIZONTAL 1 -->
       <div class="video-item reveal" data-yt-id="aWE8vkG-LgQ">
+        <div class="browser-bar">
+          <span class="browser-dot red"></span>
+          <span class="browser-dot yellow"></span>
+          <span class="browser-dot green"></span>
+          <span class="browser-url">
+            <svg viewBox="0 0 24 24" width="9" height="9"><path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12Z"/></svg>
+            youtube.com
+          </span>
+        </div>
         <a class="video-thumb-link" href="https://youtu.be/aWE8vkG-LgQ" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://i.ytimg.com/vi/aWE8vkG-LgQ/maxresdefault.jpg" alt="Preview"
@@ -1406,6 +1612,15 @@
 
       <!-- HORIZONTAL 2 -->
       <div class="video-item reveal" data-yt-id="75QHk0RvihI">
+        <div class="browser-bar">
+          <span class="browser-dot red"></span>
+          <span class="browser-dot yellow"></span>
+          <span class="browser-dot green"></span>
+          <span class="browser-url">
+            <svg viewBox="0 0 24 24" width="9" height="9"><path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12Z"/></svg>
+            youtube.com
+          </span>
+        </div>
         <a class="video-thumb-link" href="https://youtu.be/75QHk0RvihI" target="_blank" rel="noopener">
           <div class="video-thumb">
             <img src="https://i.ytimg.com/vi/75QHk0RvihI/maxresdefault.jpg" alt="Preview"
@@ -1426,6 +1641,77 @@
           </a>
         </div>
       </div>
+
+    </div>
+
+    <!-- Subtítulo Motion Graphics -->
+    <div class="portfolio-subheader reveal" style="margin-top: 5.5rem; margin-bottom: 2rem;">
+      <h3 style="font-family: var(--font-mono); font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--neon-cyan); display: flex; align-items: center; gap: 0.8rem;">
+        <span style="display: inline-block; width: 6px; height: 6px; background: var(--neon-cyan); border-radius: 50%; box-shadow: 0 0 8px var(--neon-cyan);"></span>
+        Motion Graphics
+      </h3>
+    </div>
+
+    <div class="video-grid motion-grid">
+
+      <div class="video-item reveal">
+        <div class="video-thumb">
+          <div class="video-placeholder"></div>
+          <div class="coming-soon-overlay">
+            <svg viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5" />
+              <path d="M14 20 Q17 14 20 20 Q23 26 26 20" stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
+            Próximamente
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-info-text">
+            <div class="video-platform">Motion Graphics</div>
+            <div class="video-title">Intro animada</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-item reveal">
+        <div class="video-thumb">
+          <div class="video-placeholder"></div>
+          <div class="coming-soon-overlay">
+            <svg viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5" />
+              <path d="M14 20 Q17 14 20 20 Q23 26 26 20" stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
+            Próximamente
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-info-text">
+            <div class="video-platform">Motion Graphics</div>
+            <div class="video-title">Lower thirds</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-item reveal">
+        <div class="video-thumb">
+          <div class="video-placeholder"></div>
+          <div class="coming-soon-overlay">
+            <svg viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5" />
+              <path d="M14 20 Q17 14 20 20 Q23 26 26 20" stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
+            Próximamente
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-info-text">
+            <div class="video-platform">Motion Graphics</div>
+            <div class="video-title">Transición de marca</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- PROCESO -->
